@@ -51,13 +51,13 @@ class AirtelViewSet(viewsets.ModelViewSet):
                     benefits.append(a.find("span").get_text())
                 dic[monthly_plan.get_text()] = {'monthly_plan': monthly_plan.get_text(), 
                 'data_with_rollover': benefits[0], 'sms_per_day': benefits[1], 'local_std_roaming': benefits[2], 'amazon_prime': benefits[3]}
+            self.delete_data()
             return dic
         except Exception as e:
             print(e)
             return None
 
     def save_data(self):
-        self.delete_data()
         airtel_data = self._get_airtel_data()
         if airtel_data is not None:
             try:
