@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="airtel icon" href="{% static 'images/favicon1.png' %}"/>
+<link rel="stylesheet" href="{% static 'css/my_css.css' %}" />
+<html>
+    
+    <head>
+        <h1 class="center">Airtel Best Postpaid Plans</h1></head>
+    <body>
+        <div class="center">
+        <table class="content-table">
+            <thead>
+                <th>Monthly Rental</th>
+                <th>Data with rollover</th>
+                <th>SMS per day</th>
+                <th>Local/STD & Roaming Calls</th>
+                <th>Amazon Prime</th>
+            </thead>
+            {% for data in airtel_data %}
+            <tr>
+                <td>{{ data.monthly_rental }}</td>
+                <td>{{ data.data_with_rollover }}</td>
+                <td>{{ data.sms_per_day }}</td>
+                <td>{{ data.local_std_roaming }}</td>
+                <td>{{ data.amazon_prime }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </body>
+    <footer>
+        <p>*To get serialized data type in website/data in url. 
+            Data is refreshed in every 10 minutes.
+        </p>
+    </footer>
+</html>
