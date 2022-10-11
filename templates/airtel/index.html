@@ -5,11 +5,11 @@
 <html>
     
     <head>
-        <h1 class="center">Airtel Best Postpaid Plans</h1></head>
+        <h1 class="center airtel-header">Airtel Best Postpaid Plans</h1></head>
     <body>
         <div class="center">
         <table class="content-table">
-            <thead>
+            <thead class="airtel-bg">
                 <th>Monthly Rental</th>
                 <th>Data with rollover</th>
                 <th>SMS per day</th>
@@ -17,7 +17,7 @@
                 <th>Amazon Prime</th>
             </thead>
             {% for data in airtel_data %}
-            <tr>
+            <tr class="airtel-rows">
                 <td>{{ data.monthly_rental }}</td>
                 <td>{{ data.data_with_rollover }}</td>
                 <td>{{ data.sms_per_day }}</td>

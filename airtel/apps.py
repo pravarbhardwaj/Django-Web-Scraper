@@ -6,10 +6,10 @@ class AirtelConfig(AppConfig):
     name = 'airtel'
 
     def ready(self):
-        print('Fetching and saving data on first run')
+        print('Fetching and saving data on first run for airtel plans')
         from airtel.views import AirtelViewSet
         airtel = AirtelViewSet()
         airtel.save_data()
         print('Initialising scheduler')
-        from .airtel_scheduler import airtel_updater
-        airtel_updater.start()
+        from .scheduler import updater
+        updater.start()

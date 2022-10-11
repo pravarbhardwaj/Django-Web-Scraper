@@ -13,7 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def index(request):
     data = Airtel.objects.all()
     myData = {'airtel_data': data}
-    return render(request, 'airtel/index.html', context=myData)
+    return render(request, 'airtel/airtelIndex.html', context=myData)
 
 def data(request):
     airtel = Airtel.objects.all()
@@ -31,7 +31,12 @@ class AirtelViewSet(viewsets.ModelViewSet):
     def _get_airtel_data(self):
         dic = {}
         chromeOptions = Options()
+        chromeOptions.add_argument("window-size=1400x900")
         chromeOptions.add_argument('--disable-logging')
+        chromeOptions.add_argument('--disable-extensions')
+        chromeOptions.add_argument('--disable-in-process-stack-traces')
+        chromeOptions.add_argument('--disable-gpu')
+        chromeOptions.add_argument('--log-level=3')
         chromeOptions.headless = True
         prefs = {"profile.managed_default_content_settings.images": 2}
         chromeOptions.add_experimental_option("prefs", prefs)

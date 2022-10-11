@@ -1,4 +1,4 @@
-"""innovatia URL Configuration
+"""scraper URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from airtel import views
+from airtel import views as airtel
+from jio import views as jio
 
 urlpatterns = [
-    path('data', views.data, name='data'),
-    path('', views.index, name='index'),
+    path('airtel', airtel.data, name='airtel'),
+    path('jio', jio.data, name='jio'),
     path('admin/', admin.site.urls),
 ]
