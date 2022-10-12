@@ -8,6 +8,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from rest_framework import viewsets
 from webdriver_manager.chrome import ChromeDriverManager
+# from rest_framework_simplejwt.authentication import JWTAuthentication
+# from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 
 def index(request):
@@ -15,6 +18,9 @@ def index(request):
     myData = {'airtel_data': data}
     return render(request, 'airtel/airtelIndex.html', context=myData)
 
+@api_view(['GET'])
+# @authentication_classes([JWTAuthentication])
+# @permission_classes([IsAuthenticated])
 def data(request):
     airtel = Airtel.objects.all()
     serializer = AirtelSerializer(airtel, many=True)
